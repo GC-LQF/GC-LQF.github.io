@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes">
   
   
-  <title>  Tags |   GC LQF </title>
+  <title>  Sass中文乱码问题 |   GC LQF </title>
 
  
   
@@ -73,7 +73,7 @@
       <div class="container">       
           
           
-            <section class="main slideDownMin">
+            <section class="main">  
           
 
           <article class="post">
@@ -81,16 +81,21 @@
 	<div class="post-header">
 
 	<p class="post-title">	
-		tags
+		Sass中文乱码问题
 	</p>
 			
 
 	<div class="meta-info">	
 	<span>
-		Sep 09, 2018
+		Jan 02, 2019
 	</span>
 
 	
+	
+		<i class="iconfont icon-words"></i>
+		<span>
+			858
+		</span>
 	
 </div>
 
@@ -102,7 +107,40 @@
 		
 
 			
-					  	
+					<blockquote>
+<p>在第一次使用 sass 预处理工具的时，身为小白，难免会遇到一些问题，比如最近一段时间我用 <code>sass</code>命令预编译时，就遇到了在 <em>.scss</em> 文件中写有中文注释，或者当写一个中文注释的时候，就会编译报错，找到了解决方案，分享出来。</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="Sass中文乱码问题"><a href="#Sass中文乱码问题" class="headerlink" title="Sass中文乱码问题"></a>Sass中文乱码问题</h1><h2 id="1-Sass手动编译出错"><a href="#1-Sass手动编译出错" class="headerlink" title="1. Sass手动编译出错"></a>1. Sass手动编译出错</h2><p>.scss文件中含有中文的时候编译报错（比如注释，字体栈），例如：</p>
+<p><strong>global.scss:</strong></p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">charset</span> <span class="string">"utf-8"</span>;</span><br><span class="line"><span class="comment">/* 全局变量 */</span></span><br><span class="line"><span class="variable">$default-font</span>: <span class="string">"微软雅黑"</span>,<span class="string">"黑体"</span>;</span><br><span class="line"><span class="variable">$default-fontSize</span>: <span class="number">16px</span>;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">	<span class="attribute">font-size</span>: <span class="variable">$default-fontSize</span>;</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="variable">$default-font</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编译：</p>
+<p><img src="https://images2015.cnblogs.com/blog/784924/201610/784924-20161010100830868-786548730.png" alt="image"></p>
+<p><strong>解决办法：</strong></p>
+<p>找到类似以下路径的文件:</p>
+<ul>
+<li><p>windows 下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Ruby23-x64\lib\ruby\gems\2.3.0\gems\sass-3.4.25\lib\sass\engine.rb</span><br></pre></td></tr></table></figure>
+<p>打开它，在所有的<code>reqiure</code>后面添加一句：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Encoding.default_external = Encoding.find(<span class="string">'utf-8'</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="assets/1546357713883.png" alt="1546357713883">    </p>
+</li>
+</ul>
+<p>这时加不加@charset无所谓，因为编译器编译的时候会给加上的，当然手动指定是个好习惯。</p>
+<blockquote>
+<p><strong>tips:</strong> 在编译时，一定不要使用中文路径</p>
+</blockquote>
+<hr>
+<h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><ol>
+<li>sass 在编译时中文乱码报错：修改 C:\Ruby23-x64\lib\ruby\gems\2.3.0\gems\sass-3.4.25\lib\sass\engine.rb 的require 后加一句 <code>Encoding.default_external = Encoding.find(&#39;utf-8&#39;)</code></li>
+<li><code>.scss</code>文件不允许存放在中文路径下。</li>
+<li>常用的scss 编译监听  <code>sass --watch file.scss:file.css --style compressed</code><ol>
+<li><code>--watch</code> 监听文件，并编译</li>
+<li><code>--style</code> 编译的文件格式</li>
+</ol>
+</li>
+</ol>
+  	
 					
 	  </div>     
 	  
@@ -111,6 +149,9 @@
 <div class="post-meta">
       	
 
+      
+        <i class="iconfont icon-tag"></i>     
+          <a class="tag-link" href="/tags/sass-scss在/">sass, scss在</a>    
       	
 </div>
 
@@ -152,6 +193,9 @@
     <nav class="pf-paginator">
            
         
+      
+        
+        <a href="/2018/09/16/快速上手org-mode/" data-hover="快速上手org-mode"> Next</a>
             
   </nav>   
   </div>
@@ -185,7 +229,7 @@
 				Contents
 			</p>
 			<div class="toc-list">
-				
+				<ol class="toc-inner"><li class="toc-inner-item toc-inner-level-1"><a class="toc-inner-link" href="#Sass中文乱码问题"><span class="toc-inner-text">Sass中文乱码问题</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#1-Sass手动编译出错"><span class="toc-inner-text">1. Sass手动编译出错</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#总结："><span class="toc-inner-text">总结：</span></a></li></ol></li></ol>
 			</div>
 		</div>
 	</div>
