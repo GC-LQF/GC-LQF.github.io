@@ -29,7 +29,7 @@
             <a class="header-menu-link" id="header-menu-home" href="/">
               <i class="iconfont icon-home">  
 
-              <span class="header-menu-title">首页</span>
+              <span class="header-menu-title">Home</span>
             </i></a>     
           
               
@@ -37,7 +37,7 @@
             <a class="header-menu-link" id="header-menu-archives" href="/archives">
               <i class="iconfont icon-archives">  
 
-              <span class="header-menu-title">归档</span>
+              <span class="header-menu-title">Archives</span>
             </i></a>     
           
               
@@ -45,7 +45,7 @@
             <a class="header-menu-link" id="header-menu-tags" href="/tags">
               <i class="iconfont icon-tags">  
 
-              <span class="header-menu-title">标签</span>
+              <span class="header-menu-title">Tags</span>
             </i></a>     
           
               
@@ -53,7 +53,7 @@
             <a class="header-menu-link" id="header-menu-about" href="/about">
               <i class="iconfont icon-about">  
 
-              <span class="header-menu-title">关于</span>
+              <span class="header-menu-title">About</span>
             </i></a>     
           
               
@@ -94,7 +94,7 @@
 	
 		<i class="iconfont icon-words"></i>
 		<span>
-			858
+			857
 		</span>
 	
 </div>
@@ -113,17 +113,17 @@
 <a id="more"></a>
 <h1 id="Sass中文乱码问题"><a href="#Sass中文乱码问题" class="headerlink" title="Sass中文乱码问题"></a>Sass中文乱码问题</h1><h2 id="1-Sass手动编译出错"><a href="#1-Sass手动编译出错" class="headerlink" title="1. Sass手动编译出错"></a>1. Sass手动编译出错</h2><p>.scss文件中含有中文的时候编译报错（比如注释，字体栈），例如：</p>
 <p><strong>global.scss:</strong></p>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">charset</span> <span class="string">"utf-8"</span>;</span><br><span class="line"><span class="comment">/* 全局变量 */</span></span><br><span class="line"><span class="variable">$default-font</span>: <span class="string">"微软雅黑"</span>,<span class="string">"黑体"</span>;</span><br><span class="line"><span class="variable">$default-fontSize</span>: <span class="number">16px</span>;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">	<span class="attribute">font-size</span>: <span class="variable">$default-fontSize</span>;</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="variable">$default-font</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">charset</span> <span class="string">"utf-8"</span>;</span><br><span class="line"><span class="comment">/* 全局变量 */</span></span><br><span class="line"><span class="variable">$default-font</span>: <span class="string">"微软雅黑"</span>,<span class="string">"黑体"</span>;</span><br><span class="line"><span class="variable">$default-fontSize</span>: <span class="number">16px</span>;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="variable">$default-fontSize</span>;</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="variable">$default-font</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>编译：</p>
 <p><img src="https://images2015.cnblogs.com/blog/784924/201610/784924-20161010100830868-786548730.png" alt="image"></p>
-<p><strong>解决办法：</strong></p>
-<p>找到类似以下路径的文件:</p>
+<hr>
+<p><strong>解决办法：</strong><br>找到类似以下路径的文件:</p>
 <ul>
 <li><p>windows 下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Ruby23-x64\lib\ruby\gems\2.3.0\gems\sass-3.4.25\lib\sass\engine.rb</span><br></pre></td></tr></table></figure>
 <p>打开它，在所有的<code>reqiure</code>后面添加一句：</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Encoding.default_external = Encoding.find(<span class="string">'utf-8'</span>)</span><br></pre></td></tr></table></figure>
-<p><img src="assets/1546357713883.png" alt="1546357713883">    </p>
+<p><img src="assets/1546357713883.png" alt="1546357713883"></p>
 </li>
 </ul>
 <p>这时加不加@charset无所谓，因为编译器编译的时候会给加上的，当然手动指定是个好习惯。</p>
@@ -191,11 +191,14 @@
 
       </div>  
     <nav class="pf-paginator">
-           
+      
+         
+          <a href="/2019/01/25/Web-前端面试题/" data-hover="Web 前端面试题">Prev</a>      
+            
         
       
         
-        <a href="/2018/09/16/快速上手org-mode/" data-hover="快速上手org-mode"> 下一篇</a>
+        <a href="/2018/09/16/快速上手org-mode/" data-hover="快速上手org-mode"> Next</a>
             
   </nav>   
   </div>
@@ -208,7 +211,7 @@
 			<div class="sidebar">
 			<p class="toc-title">
 				<i class="iconfont icon-toc"></i>
-				目录
+				Contents
 			</p>
 			<div class="toc-list">
 				<ol class="toc-inner"><li class="toc-inner-item toc-inner-level-1"><a class="toc-inner-link" href="#Sass中文乱码问题"><span class="toc-inner-text">Sass中文乱码问题</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#1-Sass手动编译出错"><span class="toc-inner-text">1. Sass手动编译出错</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#总结："><span class="toc-inner-text">总结：</span></a></li></ol></li></ol>
@@ -229,7 +232,7 @@
     
     <div class="search-container sildeUpMin">
         <div class="search-header">
-            <input type="text" placeholder="输入你想搜索的" id="search-input" class="search-input">
+            <input type="text" placeholder="Typing Something here." id="search-input" class="search-input">
             <span class="search-cancel">
                 <i class="iconfont icon-cancel">
             </i></span>
@@ -246,31 +249,31 @@
          
             
 
-            <a class="mobile-menu-link" href="/">首页
+            <a class="mobile-menu-link" href="/">Home
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/archives">归档
+            <a class="mobile-menu-link" href="/archives">Archives
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/tags">标签
+            <a class="mobile-menu-link" href="/tags">Tags
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/about">关于
+            <a class="mobile-menu-link" href="/about">About
             </a>
             
          
                           
 
-            <a class="mobile-menu-link mobile-menu-search" href="#">搜索 </a>                 
+            <a class="mobile-menu-link mobile-menu-search" href="#">Search </a>                 
             
          
       
